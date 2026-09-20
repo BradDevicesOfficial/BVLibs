@@ -2,6 +2,12 @@
 
 [![CI](https://github.com/BradDevicesOfficial/BVLibs/actions/workflows/ci.yml/badge.svg)](https://github.com/BradDevicesOfficial/BVLibs/actions/workflows/ci.yml)
 
+<p align="center">
+  <img alt="C" src="https://img.shields.io/badge/C-8A6D1F?style=for-the-badge">&nbsp;
+  <img alt="Assembly" src="https://img.shields.io/badge/Assembly-8A6D1F?style=for-the-badge">&nbsp;
+  <img alt="Linux" src="https://img.shields.io/badge/Linux-8A6D1F?style=for-the-badge">
+</p>
+
 The reference math and neural libraries of the BradVector platform: the C API,
 the ISA kernels they are built on, and an independent host-side reference
 implementation used for CI, porting and hardware bring-up.
