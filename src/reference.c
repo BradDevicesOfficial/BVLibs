@@ -19,7 +19,7 @@
 /* Shared scalar softpluses for GELU / SiLU. */
 #define BVN_LOG2E 1.4426950408889634f   /* kept for kernel parity */
 
-static const char *kBVMLVersion = "BVML 0.1.0 (host reference)";
+static const char *kBVMLVersion = "BVML 0.2.0 (host reference)";
 static const char *kBVNVersion = "BVN 0.2.0 (host reference)";
 
 /* ─── BVML ─────────────────────────────────────────────────────────────── */
@@ -65,6 +65,26 @@ int bvml_dot(struct bvml_context *ctx, const float *x, const float *y,
     for (size_t i = 0; i < n; i++)
         acc += x[i] * y[i];
     out[0] = acc;
+    return 0;
+}
+
+int bvml_gemm(struct bvml_context *ctx, float alpha, const float *A,
+              const float *B, float beta, float *C, size_t M, size_t N,
+              size_t K)
+{
+    if (!ctx || !A || !B || !C)
+        return -1;
+    if (M == 0 || N == 0)
+        return 0;
+    for (size_t r = 0; r < M; r++) {
+        for (size_t c = 0; c < N; c++) {
+            double s = 0.0;
+            for (size_t k = 0; k < K; k++)
+                s += (double)A[r * K + k] * (double)B[k * N + c];
+            C[r * N + c] = (float)((double)alpha * s +
+                                   (double)beta * (double)C[r * N + c]);
+        }
+    }
     return 0;
 }
 

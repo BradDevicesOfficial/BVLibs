@@ -35,8 +35,8 @@ ctest --test-dir build
 ```
 
 Requires a C11 compiler (and `libm`). The tests validate `bvml_saxpy`,
-`bvml_dot`, `bvn_relu`, `bvn_affine`, `bvn_softmax`, `bvn_gelu` and `bvn_silu`
-against independent host math.
+`bvml_dot`, `bvml_gemm`, `bvn_relu`, `bvn_affine`, `bvn_softmax`, `bvn_gelu`
+and `bvn_silu` against independent host math.
 
 ## API
 
