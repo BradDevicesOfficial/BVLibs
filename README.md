@@ -1,5 +1,7 @@
 # BVLibs
 
+[![CI](https://github.com/BradDevicesOfficial/BVLibs/actions/workflows/ci.yml/badge.svg)](https://github.com/BradDevicesOfficial/BVLibs/actions/workflows/ci.yml)
+
 The reference math and neural libraries of the BradVector platform: the C API,
 the ISA kernels they are built on, and an independent host-side reference
 implementation used for CI, porting and hardware bring-up.
